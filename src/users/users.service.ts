@@ -36,7 +36,7 @@ export class UsersService {
 
     async updateUser(id: number, updateUserDTO: UpdateUserDTO) {
         await this.getOneUser(id);
-        return this.databaseService.users.update({
+        return await this.databaseService.users.update({
             where: {id: id},
             data: updateUserDTO,
         })

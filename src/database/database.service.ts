@@ -3,7 +3,7 @@ import { PrismaClient } from 'generated/prisma/client';
 import { PrismaPg } from "@prisma/adapter-pg"
 import "dotenv/config"
 @Injectable()
-export class DatabaseService extends PrismaClient implements OnModuleInit{
+export class DatabaseService extends PrismaClient{
     constructor() {
     super({
       adapter: new PrismaPg({
@@ -11,7 +11,7 @@ export class DatabaseService extends PrismaClient implements OnModuleInit{
       }),
     });
     }
-    async onModuleInit() {
-        await this.$connect();
-    }
+    // async onModuleInit() {
+    //     await this.$connect();
+    // }
 }
